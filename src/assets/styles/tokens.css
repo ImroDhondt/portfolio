@@ -1,0 +1,74 @@
+/*
+ * Design tokens.
+ *
+ * The site commits to one dark, terminal-inspired theme. Colours come from a
+ * fixed palette; cyan is an accent only and is never used for body text.
+ */
+:root {
+  /* Surfaces and text */
+  --bg: #080c12;
+  --surface: #101722;
+  --surface-elevated: #151f2c;
+  --border: #263747;
+  --border-strong: #35506a;
+  --text: #e6edf3;
+  --muted: #8b9aaa;
+
+  /* Accents */
+  --cyan: #51e3d1;
+  --cyan-bright: #7cfff0;
+  --blue: #7aa2f7;
+  --warning: #f2cc60;
+  --error: #ff6b7a;
+  --success: #63e6be;
+
+  /* Translucent accents for backgrounds and glows */
+  --cyan-dim: rgba(81, 227, 209, 0.12);
+  --cyan-faint: rgba(81, 227, 209, 0.06);
+  --shadow: rgba(3, 6, 10, 0.65);
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Mono', Consolas,
+    'Liberation Mono', monospace;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-3xl: clamp(1.9rem, 1.4rem + 2.2vw, 2.9rem);
+
+  --leading-tight: 1.2;
+  --leading-normal: 1.6;
+  --measure: 68ch;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+
+  /* Shape and motion */
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-pill: 999px;
+  --border-width: 1px;
+  --transition: 160ms ease;
+  --container: 1120px;
+  --container-narrow: 820px;
+}
+
+/*
+ * The design is deliberately dark-only, so light-preference visitors get the
+ * same palette. `color-scheme` keeps native controls and scrollbars in step.
+ */
+:root {
+  color-scheme: dark;
+}

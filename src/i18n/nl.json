@@ -1,0 +1,225 @@
+{
+  "site": {
+    "title": "Imro Dhondt — Student Software Engineering & Ontwikkelaar",
+    "description": "Portfolio van Imro Dhondt, student Software Engineering aan Howest die webapplicaties, Android-apps, gedistribueerde systemen en interactieve projecten bouwt."
+  },
+  "nav": {
+    "label": "Hoofdnavigatie",
+    "home": "Home",
+    "projects": "Projecten",
+    "about": "Over mij",
+    "skills": "Skills",
+    "notes": "Notities",
+    "contact": "Contact",
+    "openMenu": "Menu openen",
+    "closeMenu": "Menu sluiten",
+    "skipToContent": "Naar de inhoud"
+  },
+  "locale": {
+    "label": "Taal",
+    "en": "Engels",
+    "nl": "Nederlands",
+    "switchTo": "Schakel naar {language}"
+  },
+  "actions": {
+    "viewProjects": "Bekijk projecten",
+    "aboutMe": "Over mij",
+    "viewProject": "Bekijk project",
+    "readNote": "Lees notitie",
+    "emailMe": "Mail me",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "repository": "Repository",
+    "liveSite": "Live site",
+    "download": "Download",
+    "copyEmail": "Kopieer e-mailadres",
+    "copied": "Gekopieerd",
+    "backToProjects": "Terug naar projecten",
+    "backToNotes": "Terug naar notities",
+    "allProjects": "Alle projecten",
+    "allNotes": "Alle notities",
+    "goHome": "Naar de homepagina"
+  },
+  "home": {
+    "command": "whoami",
+    "statusTitle": "Huidige status",
+    "featuredTitle": "Uitgelichte projecten",
+    "featuredIntro": "Vijf projecten die solo-eigenaarschap, gedistribueerde systemen, Android-ontwikkeling, teamwerk en actief leren tonen.",
+    "capabilitiesTitle": "Kerncapaciteiten",
+    "learningTitle": "Momenteel aan het leren",
+    "aboutTitle": "Over mij",
+    "notesTitle": "Recente notities",
+    "contactTitle": "Neem contact op",
+    "contactPrompt": "Heb je een interessant idee, project, vraag of opportuniteit? Neem gerust contact op.",
+    "readMoreAbout": "Lees meer over mij"
+  },
+  "status": {
+    "label": "Status",
+    "completed": "Afgerond",
+    "deployment-ready": "Klaar voor deployment",
+    "later-development": "Latere ontwikkeling",
+    "active-development": "Actieve ontwikkeling",
+    "public-playtest": "Publieke playtest",
+    "early-development": "Vroege ontwikkeling",
+    "prototype": "Prototype",
+    "archived": "Gearchiveerd"
+  },
+  "category": {
+    "label": "Categorie",
+    "all": "Alles",
+    "web": "Web",
+    "android": "Android",
+    "game": "Game",
+    "microservices": "Microservices",
+    "architecture": "Architectuur",
+    "devops": "DevOps",
+    "team": "Teamprojecten"
+  },
+  "ownership": {
+    "label": "Eigenaarschap",
+    "solo": "Soloproject",
+    "team": "Teamproject",
+    "soloShort": "Solo",
+    "teamShort": "Team",
+    "myRole": "Mijn rol",
+    "notMine": "Wat niet van mij is"
+  },
+  "projects": {
+    "title": "Projecten",
+    "intro": "Elk project hieronder vermeldt wat geverifieerd is, wat ik zelf bouwde en wat nog onafgewerkt is.",
+    "filterCategory": "Filter op categorie",
+    "filterStatus": "Filter op status",
+    "filterTech": "Filter op technologie",
+    "anyStatus": "Elke status",
+    "anyTech": "Elke technologie",
+    "clearFilters": "Filters wissen",
+    "resultCount": "{count} project | {count} projecten",
+    "empty": "Geen projecten komen overeen met deze filters.",
+    "role": "Rol",
+    "stack": "Stack",
+    "technologies": "Technologieën",
+    "links": "Links",
+    "noPublicLinks": "Geen publieke links voor dit project.",
+    "confidential": "Repository en schermafbeeldingen worden voor dit project niet gepubliceerd."
+  },
+  "section": {
+    "overview": "Overzicht",
+    "problem": "Probleem",
+    "users": "Gebruikers",
+    "role": "Mijn rol",
+    "built": "Wat ik bouwde",
+    "architecture": "Architectuur",
+    "technologies": "Technologieën",
+    "decisions": "Belangrijke technische beslissingen",
+    "testing": "Testen en kwaliteit",
+    "deployment": "Deployment",
+    "status": "Huidige status",
+    "learned": "Wat ik leerde",
+    "future": "Toekomstige verbeteringen"
+  },
+  "evidence": {
+    "title": "Bewijs en beperkingen",
+    "intro": "Dit paneel scheidt wat de repository bevestigt van wat nog openstaat, zodat niets op deze pagina op vertrouwen aangenomen moet worden.",
+    "verified": "Geverifieerd in de repository",
+    "builtByMe": "Door mij gebouwd",
+    "providedByTeam": "Geleverd door het team",
+    "limitations": "Beperkingen",
+    "planned": "Gepland",
+    "cannotShow": "Wat niet publiek getoond kan worden"
+  },
+  "skills": {
+    "title": "Skills",
+    "intro": "Geen percentages. Elke skill is gegradeerd op hoe die echt gebruikt werd en linkt naar de projecten die het aantonen.",
+    "legendTitle": "Hoe je dit leest",
+    "level": {
+      "primary": "Primaire ervaring",
+      "used-in-projects": "Gebruikt in projecten",
+      "familiar": "Vertrouwd",
+      "learning": "Momenteel aan het leren"
+    },
+    "levelHelp": {
+      "primary": "Herhaald gebruikt, in meer dan één project of als kern van een groot project.",
+      "used-in-projects": "Toegepast in echt projectwerk.",
+      "familiar": "Mee gewerkt, maar nog niet diepgaand.",
+      "learning": "Nu actief aan het leren."
+    },
+    "group": {
+      "languages": "Talen",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "databases": "Databanken",
+      "architecture": "Architectuur",
+      "messaging": "Messaging",
+      "devops": "DevOps en infrastructuur",
+      "testing": "Testen en kwaliteit"
+    },
+    "evidenceLabel": "Bewijs",
+    "noEvidence": "Nog geen projectbewijs"
+  },
+  "about": {
+    "title": "Over mij",
+    "journeyTitle": "Waarom software engineering",
+    "realisationsTitle": "Wat software bouwen me leerde",
+    "teamTitle": "Werken in een team",
+    "achievementsTitle": "Waar ik trots op ben",
+    "educationTitle": "Opleiding",
+    "school": "School",
+    "programme": "Opleiding",
+    "started": "Gestart",
+    "graduation": "Verwacht afstuderen",
+    "location": "Locatie",
+    "seeProject": "Bekijk project"
+  },
+  "notes": {
+    "title": "Notities",
+    "intro": "Technische notities, projectupdates en dingen die ik leerde tijdens het bouwen.",
+    "filterType": "Filter op type",
+    "filterTag": "Filter op tag",
+    "anyType": "Elk type",
+    "anyTag": "Elke tag",
+    "empty": "Geen notities komen overeen met deze filters.",
+    "resultCount": "{count} notitie | {count} notities",
+    "learned": "Wat ik leerde",
+    "wouldImprove": "Wat ik zou verbeteren",
+    "relatedProjects": "Gerelateerde projecten",
+    "type": {
+      "technical-note": "Technische notitie",
+      "project-update": "Projectupdate",
+      "lesson-learned": "Geleerde les",
+      "decision-log": "Beslissingslog",
+      "experiment": "Experiment",
+      "playtest-note": "Playtestnotitie"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Heb je een interessant idee, project, vraag of opportuniteit? Ik praat altijd graag over software, games en nieuwe manieren om dingen te bouwen.",
+    "availabilityTitle": "Beschikbaarheid voor stage",
+    "emailLabel": "E-mail",
+    "githubLabel": "GitHub",
+    "linkedinLabel": "LinkedIn",
+    "noForm": "Er staat hier bewust geen contactformulier: e-mail komt rechtstreeks bij mij aan en niets doet alsof het verzendt."
+  },
+  "notFound": {
+    "title": "Pagina niet gevonden",
+    "body": "Die pagina bestaat niet. De navigatie hierboven brengt je terug."
+  },
+  "footer": {
+    "builtWith": "Gebouwd met Vue 3, TypeScript en Vite.",
+    "rights": "© {year} Imro Dhondt"
+  },
+  "meta": {
+    "projects": "Projecten — Imro Dhondt",
+    "projectsDescription": "Projecten van Imro Dhondt: een QHSE-platform, een gedistribueerd bioscoopsysteem, een Android-game, een hotelportaal in teamverband en een Roblox-leerproject.",
+    "about": "Over mij — Imro Dhondt",
+    "aboutDescription": "Wie Imro Dhondt is, waarom hij software engineering studeert en wat software bouwen hem leerde.",
+    "skills": "Skills — Imro Dhondt",
+    "skillsDescription": "Technologieën en capaciteiten van Imro Dhondt, eerlijk gegradeerd en gelinkt aan de projecten die ze aantonen.",
+    "notes": "Notities — Imro Dhondt",
+    "notesDescription": "Technische notities, projectupdates en geleerde lessen van Imro Dhondt.",
+    "contact": "Contact — Imro Dhondt",
+    "contactDescription": "Contacteer Imro Dhondt via e-mail, GitHub of LinkedIn. Momenteel open voor stagemogelijkheden.",
+    "notFound": "Pagina niet gevonden — Imro Dhondt"
+  }
+}

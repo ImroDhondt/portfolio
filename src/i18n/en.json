@@ -1,0 +1,225 @@
+{
+  "site": {
+    "title": "Imro Dhondt — Software Engineering Student & Developer",
+    "description": "Portfolio of Imro Dhondt, a Software Engineering student at Howest building web applications, Android apps, distributed systems, and interactive projects."
+  },
+  "nav": {
+    "label": "Main navigation",
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "skills": "Skills",
+    "notes": "Notes",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "skipToContent": "Skip to content"
+  },
+  "locale": {
+    "label": "Language",
+    "en": "English",
+    "nl": "Dutch",
+    "switchTo": "Switch to {language}"
+  },
+  "actions": {
+    "viewProjects": "View projects",
+    "aboutMe": "About me",
+    "viewProject": "View project",
+    "readNote": "Read note",
+    "emailMe": "Email me",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "repository": "Repository",
+    "liveSite": "Live site",
+    "download": "Download",
+    "copyEmail": "Copy email address",
+    "copied": "Copied",
+    "backToProjects": "Back to projects",
+    "backToNotes": "Back to notes",
+    "allProjects": "All projects",
+    "allNotes": "All notes",
+    "goHome": "Go to home"
+  },
+  "home": {
+    "command": "whoami",
+    "statusTitle": "Current status",
+    "featuredTitle": "Featured projects",
+    "featuredIntro": "Five projects that show solo ownership, distributed systems, Android development, team collaboration, and active learning.",
+    "capabilitiesTitle": "Core capabilities",
+    "learningTitle": "Currently learning",
+    "aboutTitle": "About",
+    "notesTitle": "Recent notes",
+    "contactTitle": "Get in touch",
+    "contactPrompt": "Have an interesting idea, project, question, or opportunity? Feel free to get in touch.",
+    "readMoreAbout": "Read more about me"
+  },
+  "status": {
+    "label": "Status",
+    "completed": "Completed",
+    "deployment-ready": "Deployment-ready",
+    "later-development": "Later development",
+    "active-development": "Active development",
+    "public-playtest": "Public playtest",
+    "early-development": "Early development",
+    "prototype": "Prototype",
+    "archived": "Archived"
+  },
+  "category": {
+    "label": "Category",
+    "all": "All",
+    "web": "Web",
+    "android": "Android",
+    "game": "Game",
+    "microservices": "Microservices",
+    "architecture": "Architecture",
+    "devops": "DevOps",
+    "team": "Team projects"
+  },
+  "ownership": {
+    "label": "Ownership",
+    "solo": "Solo project",
+    "team": "Team project",
+    "soloShort": "Solo",
+    "teamShort": "Team",
+    "myRole": "My role",
+    "notMine": "What is not mine"
+  },
+  "projects": {
+    "title": "Projects",
+    "intro": "Every project below lists what is verified, what I personally built, and what is still incomplete.",
+    "filterCategory": "Filter by category",
+    "filterStatus": "Filter by status",
+    "filterTech": "Filter by technology",
+    "anyStatus": "Any status",
+    "anyTech": "Any technology",
+    "clearFilters": "Clear filters",
+    "resultCount": "{count} project | {count} projects",
+    "empty": "No projects match these filters.",
+    "role": "Role",
+    "stack": "Stack",
+    "technologies": "Technologies",
+    "links": "Links",
+    "noPublicLinks": "No public links for this project.",
+    "confidential": "Repository and screenshots are not published for this project."
+  },
+  "section": {
+    "overview": "Overview",
+    "problem": "Problem",
+    "users": "Users",
+    "role": "My role",
+    "built": "What I built",
+    "architecture": "Architecture",
+    "technologies": "Technologies",
+    "decisions": "Important technical decisions",
+    "testing": "Testing and quality",
+    "deployment": "Deployment",
+    "status": "Current status",
+    "learned": "What I learned",
+    "future": "Future improvements"
+  },
+  "evidence": {
+    "title": "Evidence and limitations",
+    "intro": "This panel separates what the repository confirms from what is still open, so nothing on this page has to be taken on trust.",
+    "verified": "Verified in the repository",
+    "builtByMe": "Built by me",
+    "providedByTeam": "Provided by the team",
+    "limitations": "Limitations",
+    "planned": "Planned",
+    "cannotShow": "What cannot be shown publicly"
+  },
+  "skills": {
+    "title": "Skills",
+    "intro": "No percentages. Each skill is graded by how it was actually used, and links to the projects that demonstrate it.",
+    "legendTitle": "How to read this",
+    "level": {
+      "primary": "Primary experience",
+      "used-in-projects": "Used in projects",
+      "familiar": "Familiar",
+      "learning": "Currently learning"
+    },
+    "levelHelp": {
+      "primary": "Used repeatedly, across more than one project or as the core of a large one.",
+      "used-in-projects": "Applied in real project work.",
+      "familiar": "Worked with, but not yet deeply.",
+      "learning": "Actively learning right now."
+    },
+    "group": {
+      "languages": "Languages",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "databases": "Databases",
+      "architecture": "Architecture",
+      "messaging": "Messaging",
+      "devops": "DevOps and infrastructure",
+      "testing": "Testing and quality"
+    },
+    "evidenceLabel": "Evidence",
+    "noEvidence": "No project evidence yet"
+  },
+  "about": {
+    "title": "About",
+    "journeyTitle": "Why software engineering",
+    "realisationsTitle": "What building software has taught me",
+    "teamTitle": "Working in a team",
+    "achievementsTitle": "Things I am proud of",
+    "educationTitle": "Education",
+    "school": "School",
+    "programme": "Programme",
+    "started": "Started",
+    "graduation": "Expected graduation",
+    "location": "Location",
+    "seeProject": "See project"
+  },
+  "notes": {
+    "title": "Notes",
+    "intro": "Technical notes, project updates and things I learned while building.",
+    "filterType": "Filter by type",
+    "filterTag": "Filter by tag",
+    "anyType": "Any type",
+    "anyTag": "Any tag",
+    "empty": "No notes match these filters.",
+    "resultCount": "{count} note | {count} notes",
+    "learned": "What I learned",
+    "wouldImprove": "What I would improve",
+    "relatedProjects": "Related projects",
+    "type": {
+      "technical-note": "Technical note",
+      "project-update": "Project update",
+      "lesson-learned": "Lesson learned",
+      "decision-log": "Decision log",
+      "experiment": "Experiment",
+      "playtest-note": "Playtest note"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "intro": "Have an interesting idea, project, question, or opportunity? I’m always interested in discussing software, games, and new ways to build things.",
+    "availabilityTitle": "Internship availability",
+    "emailLabel": "Email",
+    "githubLabel": "GitHub",
+    "linkedinLabel": "LinkedIn",
+    "noForm": "There is no contact form here on purpose: email reaches me directly and nothing pretends to send."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "That page does not exist. The navigation above will get you back."
+  },
+  "footer": {
+    "builtWith": "Built with Vue 3, TypeScript and Vite.",
+    "rights": "© {year} Imro Dhondt"
+  },
+  "meta": {
+    "projects": "Projects — Imro Dhondt",
+    "projectsDescription": "Projects by Imro Dhondt: a QHSE platform, a distributed cinema system, an Android game, a team hotel portal, and a Roblox learning project.",
+    "about": "About — Imro Dhondt",
+    "aboutDescription": "Who Imro Dhondt is, why he studies software engineering, and what building software has taught him.",
+    "skills": "Skills — Imro Dhondt",
+    "skillsDescription": "Technologies and capabilities of Imro Dhondt, graded honestly and linked to the projects that demonstrate them.",
+    "notes": "Notes — Imro Dhondt",
+    "notesDescription": "Technical notes, project updates and lessons learned by Imro Dhondt.",
+    "contact": "Contact — Imro Dhondt",
+    "contactDescription": "Contact Imro Dhondt by email, GitHub or LinkedIn. Currently open to internship opportunities.",
+    "notFound": "Page not found — Imro Dhondt"
+  }
+}

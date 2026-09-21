@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+coverage/
+
+# Personal briefing document for this site. Keep it out of the repository:
+# it describes project limitations and confidential context that is not meant
+# to be published alongside the site.
+portfolio-context.txt
+*.stackdump
