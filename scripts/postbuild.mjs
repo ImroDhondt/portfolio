@@ -51,11 +51,9 @@ console.log(`postbuild: pre-rendered ${routePaths().length} routes`)
 
 const siteUrl = (process.env.SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, '')
 
-const urls = []
-for (const locale of locales) {
-  for (const path of paths) urls.push(`${siteUrl}/${locale}${path}`)
-  for (const slug of projectSlugs) urls.push(`${siteUrl}/${locale}/projects/${slug}`)
-}
+// Trailing slashes match what the static host actually serves, so a crawler
+// reaches every URL directly instead of through a 301.
+const urls = routePaths().map((route) => `${siteUrl}${route}/`)
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
