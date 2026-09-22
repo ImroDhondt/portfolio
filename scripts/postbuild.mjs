@@ -1,13 +1,16 @@
 /**
  * Post-build steps for a static host.
  *
- * 1. Copy index.html to 404.html so GitHub Pages serves the SPA for deep
- *    links such as /en/projects/howestprime.
- * 2. Write a sitemap and a robots.txt entry for the site's own domain.
+ * 1. Copy index.html to 404.html so GitHub Pages serves the SPA for any URL
+ *    the router knows but the build did not pre-render.
+ * 2. Pre-render index.html at every known route. Without this, a static host
+ *    answers deep links through the 404 fallback, which renders correctly but
+ *    responds with HTTP 404 and keeps crawlers out.
+ * 3. Write a sitemap and a robots.txt entry for the site's own domain.
  *    SITE_URL overrides the default, which is useful for a staging host.
  */
-import { copyFile, writeFile, appendFile } from 'node:fs/promises'
-import { resolve } from 'node:path'
+import { copyFile, mkdir, writeFile, appendFile } from 'node:fs/promises'
+import { dirname, resolve } from 'node:path'
 
 const dist = resolve(process.cwd(), 'dist')
 const DEFAULT_SITE_URL = 'https://imrodhondt.be'
@@ -27,6 +30,24 @@ const projectSlugs = [
 
 await copyFile(resolve(dist, 'index.html'), resolve(dist, '404.html'))
 console.log('postbuild: wrote dist/404.html')
+
+/** Every route the router serves, relative to the site root. */
+function routePaths() {
+  const all = []
+  for (const locale of locales) {
+    for (const path of paths) all.push(`/${locale}${path}`)
+    for (const slug of projectSlugs) all.push(`/${locale}/projects/${slug}`)
+  }
+  return all
+}
+
+const shell = resolve(dist, 'index.html')
+for (const route of routePaths()) {
+  const target = resolve(dist, `.${route}`, 'index.html')
+  await mkdir(dirname(target), { recursive: true })
+  await copyFile(shell, target)
+}
+console.log(`postbuild: pre-rendered ${routePaths().length} routes`)
 
 const siteUrl = (process.env.SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, '')
 
