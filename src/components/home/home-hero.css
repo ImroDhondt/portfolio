@@ -101,6 +101,34 @@
   justify-self: center;
 }
 
+/*
+ * Stacked layout: the map becomes a small emblem between the intro and the
+ * status panel instead of a full-width diagram.
+ */
+@media (max-width: 959px) {
+  .hero__map {
+    width: min(100%, 320px);
+  }
+}
+
+/* Tablets: status panel and map side by side rather than stacked. */
+@media (min-width: 600px) and (max-width: 959px) {
+  .hero__workbench {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  .hero__map {
+    order: 2;
+  }
+
+  .hero__workbench .state {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
 .state {
   width: min(100%, 22rem);
   margin-top: calc(-1 * var(--space-3));
@@ -115,7 +143,7 @@
 
 @media (max-width: 519px) {
   .hero__map {
-    display: none;
+    width: min(100%, 260px);
   }
 
   .state {

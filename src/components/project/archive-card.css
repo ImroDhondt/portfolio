@@ -215,7 +215,21 @@
   }
 
   .entry .entry__visual {
-    min-height: 130px;
+    min-height: 150px;
+  }
+
+  /* Tighter frame so the drawing, not the empty panel, fills the space. */
+  .entry .entry__visual > .entry__motif {
+    inset: var(--space-2) var(--space-3);
+  }
+
+  /* Same tag count on every card keeps the swipe row an even height. */
+  .entry__tags {
+    margin-top: 0;
+  }
+
+  .entry__tags > li:nth-child(n + 4) {
+    display: none;
   }
 
   .entry--feature .entry__title {

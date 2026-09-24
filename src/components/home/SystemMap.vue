@@ -113,6 +113,18 @@ const center = { x: 214, y: 176 }
 }
 
 
+/* Drawn small on narrow screens: larger type in viewBox units keeps it legible. */
+@media (max-width: 959px) {
+  .map__label {
+    font-size: 17px;
+    letter-spacing: 0.08em;
+  }
+
+  .map__core text {
+    font-size: 18px;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .map__link {
     stroke-dasharray: 1;
