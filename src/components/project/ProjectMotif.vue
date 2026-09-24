@@ -4,6 +4,7 @@ import type { MotifKind } from '@/data/archive'
 import WorkflowMotif from './motifs/WorkflowMotif.vue'
 import StreamMotif from './motifs/StreamMotif.vue'
 import HandsetMotif from './motifs/HandsetMotif.vue'
+import HandsetWide from './motifs/HandsetWide.vue'
 import RoomsMotif from './motifs/RoomsMotif.vue'
 import TrailMotif from './motifs/TrailMotif.vue'
 import WorkflowPortrait from './motifs/WorkflowPortrait.vue'
@@ -20,15 +21,15 @@ const props = defineProps<{ kind: MotifKind; hue: string; portrait?: boolean }>(
 const landscape = {
   workflow: WorkflowMotif,
   stream: StreamMotif,
-  handset: HandsetMotif,
+  handset: HandsetWide,
   rooms: RoomsMotif,
   trail: TrailMotif,
 }
 
-/** Tall versions for narrow slots; the handset is already portrait. */
+/** Tall versions for narrow or portrait slots. */
 const portrait = {
-  ...landscape,
   workflow: WorkflowPortrait,
+  handset: HandsetMotif,
   stream: StreamPortrait,
   rooms: RoomsPortrait,
   trail: TrailPortrait,

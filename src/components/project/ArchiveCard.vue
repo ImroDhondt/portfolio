@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useLocale } from '@/composables/useLocale'
+import { useMediaQuery } from '@/composables/useMediaQuery'
 import { archiveEntry, type ArchiveVariant } from '@/data/archive'
 import type { Project } from '@/types/content'
 import StatusBadge from '@/components/common/StatusBadge.vue'
@@ -15,6 +16,9 @@ const { t } = useI18n()
 const { text, routeTo } = useLocale()
 
 const entry = computed(() => archiveEntry(props.project.slug))
+/** The tall card only has a portrait panel where the grid gives it two rows. */
+const spansRows = useMediaQuery('(min-width: 720px)')
+const portrait = computed(() => props.variant === 'tall' && spansRows.value)
 const number = computed(() => String(props.index + 1).padStart(2, '0'))
 const tech = computed(() =>
   props.variant === 'compact' ? props.project.primaryTech.slice(0, 3) : props.project.primaryTech,
@@ -36,7 +40,7 @@ const tech = computed(() =>
     </header>
 
     <div class="entry__visual">
-      <ProjectMotif class="entry__motif" :kind="entry.motif" :hue="entry.hue" />
+      <ProjectMotif class="entry__motif" :kind="entry.motif" :hue="entry.hue" :portrait="portrait" />
     </div>
 
     <div class="entry__body">
