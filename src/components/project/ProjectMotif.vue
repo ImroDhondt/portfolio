@@ -6,14 +6,18 @@ import StreamMotif from './motifs/StreamMotif.vue'
 import HandsetMotif from './motifs/HandsetMotif.vue'
 import RoomsMotif from './motifs/RoomsMotif.vue'
 import TrailMotif from './motifs/TrailMotif.vue'
+import WorkflowPortrait from './motifs/WorkflowPortrait.vue'
+import StreamPortrait from './motifs/StreamPortrait.vue'
+import RoomsPortrait from './motifs/RoomsPortrait.vue'
+import TrailPortrait from './motifs/TrailPortrait.vue'
 
 /**
  * Abstract drawing that stands in for a project screenshot. These are
  * diagrams of the idea behind each project, never mock interfaces.
  */
-const props = defineProps<{ kind: MotifKind; hue: string }>()
+const props = defineProps<{ kind: MotifKind; hue: string; portrait?: boolean }>()
 
-const components = {
+const landscape = {
   workflow: WorkflowMotif,
   stream: StreamMotif,
   handset: HandsetMotif,
@@ -21,7 +25,16 @@ const components = {
   trail: TrailMotif,
 }
 
-const motif = computed(() => components[props.kind])
+/** Tall versions for narrow slots; the handset is already portrait. */
+const portrait = {
+  ...landscape,
+  workflow: WorkflowPortrait,
+  stream: StreamPortrait,
+  rooms: RoomsPortrait,
+  trail: TrailPortrait,
+}
+
+const motif = computed(() => (props.portrait ? portrait : landscape)[props.kind])
 </script>
 
 <template>

@@ -4,7 +4,7 @@ import { archiveEntry } from '@/data/archive'
 import type { Project } from '@/types/content'
 import ProjectMotif from './ProjectMotif.vue'
 
-const props = defineProps<{ project: Project }>()
+const props = defineProps<{ project: Project; portrait?: boolean }>()
 
 /**
  * Cover art for cards and detail pages.
@@ -18,7 +18,7 @@ const entry = computed(() => archiveEntry(props.project.slug))
 
 <template>
   <div class="cover" :style="{ '--hue': entry.hue }" aria-hidden="true">
-    <ProjectMotif class="cover__motif" :kind="entry.motif" :hue="entry.hue" />
+    <ProjectMotif class="cover__motif" :kind="entry.motif" :hue="entry.hue" :portrait="portrait" />
   </div>
 </template>
 

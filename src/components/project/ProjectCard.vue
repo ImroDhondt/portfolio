@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
 import { useLocale } from '@/composables/useLocale'
+import { useMediaQuery } from '@/composables/useMediaQuery'
 import type { Project } from '@/types/content'
 import StatusBadge from '@/components/common/StatusBadge.vue'
 import OwnershipBadge from '@/components/common/OwnershipBadge.vue'
@@ -11,11 +12,13 @@ defineProps<{ project: Project }>()
 
 const { t } = useI18n()
 const { text, routeTo } = useLocale()
+/** Phones show the cover as a narrow side strip, so it needs the tall drawing. */
+const narrow = useMediaQuery('(max-width: 719px)')
 </script>
 
 <template>
   <article class="card">
-    <ProjectCover class="card__cover" :project="project" />
+    <ProjectCover class="card__cover" :project="project" :portrait="narrow" />
 
     <div class="card__body">
       <div class="card__badges">
