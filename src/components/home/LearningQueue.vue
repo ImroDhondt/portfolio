@@ -92,4 +92,25 @@ const { text } = useLocale()
   font-size: var(--text-sm);
   color: var(--text-soft);
 }
+
+@media (max-width: 519px) {
+  .queue__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-5) var(--space-4);
+  }
+
+  .queue__list::before {
+    display: none;
+  }
+
+  .queue__item {
+    grid-template-columns: 1fr;
+    align-content: start;
+    gap: var(--space-2);
+  }
+
+  .queue__name {
+    font-size: var(--text-base);
+  }
+}
 </style>

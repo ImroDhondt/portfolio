@@ -33,11 +33,13 @@ useSeo({
         </RouterLink>
       </div>
       <ProjectArchive :projects="featuredProjects" />
+      <p class="swipe-hint" aria-hidden="true">{{ t('home.swipeHint') }} →</p>
     </section>
 
     <section class="section" aria-labelledby="capabilities-title">
       <SectionHeading id="capabilities-title" index="02" :title="t('home.capabilitiesTitle')" />
       <CapabilityMatrix />
+      <p class="swipe-hint" aria-hidden="true">{{ t('home.swipeHint') }} →</p>
     </section>
 
     <section class="section section--split" aria-labelledby="learning-title">
@@ -59,7 +61,13 @@ useSeo({
 
 <style scoped>
 .section {
-  padding-block: var(--space-8);
+  padding-block: var(--space-7);
+}
+
+@media (min-width: 720px) {
+  .section {
+    padding-block: var(--space-8);
+  }
 }
 
 @media (min-width: 900px) {
@@ -75,7 +83,7 @@ useSeo({
   justify-content: space-between;
   gap: var(--space-4) var(--space-6);
   margin-top: calc(-1 * var(--space-3));
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
 }
 
 .section__intro {

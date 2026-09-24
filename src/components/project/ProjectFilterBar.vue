@@ -155,4 +155,39 @@ select {
   font-size: var(--text-xs);
   color: var(--muted);
 }
+
+/* Phones: categories in one sideways line, the two selects side by side. */
+@media (max-width: 719px) {
+  .filters {
+    gap: var(--space-3);
+    margin-bottom: var(--space-5);
+  }
+
+  .filters__group {
+    flex-wrap: nowrap;
+    margin-inline: calc(-1 * var(--space-4));
+    padding: 0 var(--space-4) var(--space-1);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .chip {
+    flex: none;
+  }
+
+  .filters__selects {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+
+  select {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .clear {
+    grid-column: 1 / -1;
+  }
+}
 </style>

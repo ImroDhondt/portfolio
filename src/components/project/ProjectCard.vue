@@ -15,7 +15,7 @@ const { text, routeTo } = useLocale()
 
 <template>
   <article class="card">
-    <ProjectCover :project="project" />
+    <ProjectCover class="card__cover" :project="project" />
 
     <div class="card__body">
       <div class="card__badges">
@@ -123,5 +123,55 @@ const { text, routeTo } = useLocale()
   flex-wrap: wrap;
   gap: var(--space-2);
   margin-top: var(--space-1);
+}
+
+/*
+ * Phones: a compact row with the motif as a side strip. Role and stack stay
+ * on the project page, so the list reads as an index rather than a scroll.
+ */
+@media (max-width: 719px) {
+  .card {
+    flex-direction: row;
+  }
+
+  .card > .card__cover {
+    flex: none;
+    width: 88px;
+    aspect-ratio: auto;
+    padding: 0;
+    border-bottom: 0;
+    border-right: var(--border-width) solid var(--border);
+  }
+
+  .card > .card__cover :deep(.cover__motif) {
+    inset: var(--space-3) var(--space-2);
+  }
+
+  .card__body {
+    gap: var(--space-2);
+    padding: var(--space-4);
+  }
+
+  .card__title {
+    font-size: var(--text-lg);
+  }
+
+  .card__summary {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .card__meta,
+  .card__tags {
+    display: none;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: none;
+  }
 }
 </style>

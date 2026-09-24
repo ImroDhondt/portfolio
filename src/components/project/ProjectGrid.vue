@@ -16,7 +16,7 @@ defineProps<{ projects: Project[] }>()
 <style scoped>
 .grid {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-3);
   grid-template-columns: 1fr;
 }
 
@@ -30,6 +30,7 @@ defineProps<{ projects: Project[] }>()
 
 @media (min-width: 720px) {
   .grid {
+    gap: var(--space-5);
     grid-template-columns: repeat(2, 1fr);
   }
 }

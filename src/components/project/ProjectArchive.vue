@@ -17,11 +17,11 @@ function variantAt(index: number): ArchiveVariant {
 </script>
 
 <template>
-  <ol class="archive">
+  <ol class="archive swipe-row">
     <li
       v-for="(project, index) in projects"
       :key="project.slug"
-      :style="index < variants.length ? { gridArea: `e${index}` } : undefined"
+      :class="index < variants.length ? `slot-${index}` : undefined"
     >
       <ArchiveCard :project="project" :index="index" :variant="variantAt(index)" />
     </li>
@@ -29,15 +29,16 @@ function variantAt(index: number): ArchiveVariant {
 </template>
 
 <style scoped>
-.archive {
-  display: grid;
-  gap: var(--space-5);
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-areas: 'e0' 'e1' 'e2' 'e3' 'e4';
-}
-
 @media (min-width: 720px) {
+  .slot-0 { grid-area: e0; }
+  .slot-1 { grid-area: e1; }
+  .slot-2 { grid-area: e2; }
+  .slot-3 { grid-area: e3; }
+  .slot-4 { grid-area: e4; }
+
   .archive {
+    display: grid;
+    gap: var(--space-5);
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas:
       'e0 e0'

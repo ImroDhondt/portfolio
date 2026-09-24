@@ -279,6 +279,52 @@ samp {
   }
 }
 
+/*
+ * Phones: turn a list of peer items into a sideways swipe row with the next
+ * item peeking in, instead of stacking everything into one long column.
+ */
+@media (max-width: 719px) {
+  .swipe-row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 84%;
+    gap: var(--space-3);
+    margin-inline: calc(-1 * var(--space-4));
+    padding: var(--space-1) var(--space-4) var(--space-4);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--space-4);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+
+  .swipe-row > * {
+    scroll-snap-align: start;
+  }
+
+  /* View timelines do not follow a sideways scroller, so skip the entrance. */
+  .swipe-row .reveal,
+  .swipe-row > .reveal {
+    animation: none;
+  }
+}
+
+.swipe-hint {
+  margin-top: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (min-width: 720px) {
+  .swipe-hint {
+    display: none;
+  }
+}
+
 /* Motion ------------------------------------------------------------ */
 
 @media (prefers-reduced-motion: reduce) {

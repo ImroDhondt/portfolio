@@ -55,7 +55,7 @@ const tech = computed(() =>
         {{ variant === 'compact' ? text(project.tagline) : text(project.summary) }}
       </p>
 
-      <ul v-if="variant !== 'feature'" class="entry__tags" :aria-label="t('projects.stack')">
+      <ul class="entry__tags" :aria-label="t('projects.stack')">
         <li v-for="item in tech" :key="item"><TechTag :label="item" /></li>
       </ul>
 

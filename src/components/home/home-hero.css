@@ -2,7 +2,13 @@
   display: grid;
   gap: var(--space-7);
   align-items: center;
-  padding-block: var(--space-8) var(--space-7);
+  padding-block: var(--space-7) var(--space-6);
+}
+
+@media (min-width: 720px) {
+  .hero {
+    padding-block: var(--space-8) var(--space-7);
+  }
 }
 
 @media (min-width: 960px) {

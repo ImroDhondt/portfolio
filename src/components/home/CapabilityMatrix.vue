@@ -14,7 +14,7 @@ function projectsFor(slugs: string[]) {
 </script>
 
 <template>
-  <ul class="matrix">
+  <ul class="matrix swipe-row">
     <li v-for="(capability, index) in capabilities" :key="capability.key" class="matrix__row reveal">
       <p class="matrix__key" aria-hidden="true">
         {{ String(index + 1).padStart(2, '0') }} · {{ capability.key }}
@@ -44,6 +44,26 @@ function projectsFor(slugs: string[]) {
   gap: var(--space-2) var(--space-6);
   padding-block: var(--space-5);
   border-bottom: var(--border-width) solid var(--border);
+}
+
+/* Phones: one card per capability group in a swipe row. */
+@media (max-width: 719px) {
+  .matrix {
+    border-top: 0;
+  }
+
+  .matrix__row {
+    align-content: start;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-4);
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius);
+  }
+
+  .matrix__items {
+    font-size: var(--text-sm);
+  }
 }
 
 @media (min-width: 900px) {

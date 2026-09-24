@@ -132,4 +132,30 @@ const timeline = computed(() => [
   text-transform: uppercase;
   text-decoration: none;
 }
+
+/*
+ * Phones: the quote and the path tell the story; the longer paragraphs are
+ * on the About page, one tap away via the link below.
+ */
+@media (max-width: 719px) {
+  .about {
+    gap: var(--space-6);
+  }
+
+  .about__quote {
+    padding-left: var(--space-4);
+  }
+
+  .about__quote p {
+    font-size: var(--text-lg);
+  }
+
+  .about__prose {
+    display: none;
+  }
+
+  .path__step {
+    grid-template-columns: 3.5rem 1fr;
+  }
+}
 </style>

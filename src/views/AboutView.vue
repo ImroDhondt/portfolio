@@ -37,22 +37,23 @@ const journey = {
 
     <section class="block">
       <SectionHeading index="02" :title="t('about.realisationsTitle')" />
-      <ul class="bullet-list muted">
+      <ol class="bullet-list muted lessons swipe-row">
         <li v-for="item in text(realisations)" :key="item">{{ item }}</li>
-      </ul>
+      </ol>
+      <p class="swipe-hint" aria-hidden="true">{{ t('home.swipeHint') }} →</p>
     </section>
 
     <section class="block">
       <SectionHeading index="03" :title="t('about.teamTitle')" />
       <p class="muted">{{ text(teamContribution.statement) }}</p>
-      <ul class="bullet-list muted block__list">
+      <ul class="bullet-list muted block__list traits">
         <li v-for="item in text(teamContribution.items)" :key="item">{{ item }}</li>
       </ul>
     </section>
 
     <section class="block">
       <SectionHeading index="04" :title="t('about.achievementsTitle')" />
-      <ul class="achievements">
+      <ul class="achievements swipe-row">
         <li v-for="item in achievements" :key="item.project" class="achievement surface">
           <h3 class="achievement__title">{{ text(item.title) }}</h3>
           <p class="achievement__body">{{ text(item.body) }}</p>
@@ -61,6 +62,7 @@ const journey = {
           </RouterLink>
         </li>
       </ul>
+      <p class="swipe-hint" aria-hidden="true">{{ t('home.swipeHint') }} →</p>
     </section>
 
     <section class="block">
@@ -166,7 +168,64 @@ const journey = {
   margin: 0;
 }
 
-@media (max-width: 599px) {
+/* Phones: denser blocks instead of one long column of bullets. */
+@media (max-width: 719px) {
+  .block {
+    padding-top: var(--space-6);
+    margin-top: var(--space-6);
+  }
+
+  .lessons {
+    max-width: none;
+    counter-reset: lesson;
+  }
+
+  .lessons > li {
+    padding: var(--space-5) var(--space-4) var(--space-4);
+    background-color: var(--surface);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-soft);
+    counter-increment: lesson;
+  }
+
+  .lessons > li::before {
+    content: counter(lesson, decimal-leading-zero);
+    position: static;
+    display: block;
+    width: auto;
+    height: auto;
+    margin-bottom: var(--space-2);
+    border: 0;
+    transform: none;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--cyan);
+  }
+
+  .traits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .traits > li {
+    padding: var(--space-1) var(--space-3);
+    border: var(--border-width) solid var(--border);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-sm);
+    color: var(--text-soft);
+  }
+
+  .traits > li::before {
+    display: none;
+  }
+
+  .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4) var(--space-3);
+  }
+
   .facts > div {
     grid-template-columns: 1fr;
     gap: var(--space-1);

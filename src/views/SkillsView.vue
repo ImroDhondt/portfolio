@@ -8,7 +8,7 @@ import { SKILL_GROUPS, SKILL_LEVELS, type SkillLevel } from '@/types/content'
 import PageHeader from '@/components/layout/PageHeader.vue'
 import SectionHeading from '@/components/common/SectionHeading.vue'
 import LevelFilter from '@/components/skills/LevelFilter.vue'
-import SkillRow from '@/components/skills/SkillRow.vue'
+import SkillGroup from '@/components/skills/SkillGroup.vue'
 
 const { t } = useI18n()
 const { text } = useLocale()
@@ -38,17 +38,13 @@ const groups = computed(() =>
     <LevelFilter v-model="level" class="filter" />
 
     <div class="groups">
-      <section v-for="entry in groups" :key="entry.group" class="group" :aria-labelledby="`group-${entry.group}`">
-        <h2 :id="`group-${entry.group}`" class="group__title">
-          {{ t(`skills.group.${entry.group}`) }}
-          <span class="group__count">{{ entry.items.length }}</span>
-        </h2>
-        <ul class="group__list">
-          <li v-for="skill in entry.items" :key="skill.name">
-            <SkillRow :skill="skill" />
-          </li>
-        </ul>
-      </section>
+      <SkillGroup
+        v-for="entry in groups"
+        :key="entry.group"
+        :group="entry.group"
+        :items="entry.items"
+        :filtered="level !== null"
+      />
     </div>
 
     <section class="learning-block">
@@ -86,31 +82,6 @@ const groups = computed(() =>
   }
 }
 
-.group {
-  break-inside: avoid;
-  margin-bottom: var(--space-5);
-  padding: var(--space-4) var(--space-4) var(--space-2);
-  background-color: var(--surface);
-  border: var(--border-width) solid var(--border);
-  border-radius: var(--radius);
-}
-
-.group__title {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: var(--space-3);
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  font-weight: 500;
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--cyan);
-}
-
-.group__count {
-  color: var(--muted);
-}
 
 .learning-block {
   margin-top: var(--space-8);
