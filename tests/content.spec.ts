@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { projects, findProject } from '@/data/projects'
 import { notes } from '@/data/notes'
 import { skills } from '@/data/skills'
+import { capabilities } from '@/data/capabilities'
 import { isKnownTechnology } from '@/data/tech'
 import { LOCALES, PROJECT_SECTION_IDS } from '@/types/content'
 import en from '@/i18n/en.json'
@@ -205,6 +206,17 @@ describe('notes', () => {
   it('has the same number of body paragraphs in both languages', () => {
     for (const note of notes) {
       expect(note.body.en.length).toBe(note.body.nl.length)
+    }
+  })
+})
+
+describe('capabilities', () => {
+  it('backs every capability group with existing projects', () => {
+    for (const capability of capabilities) {
+      expect(capability.evidence.length, `${capability.key} has no evidence`).toBeGreaterThan(0)
+      for (const slug of capability.evidence) {
+        expect(findProject(slug), `${capability.key} references unknown project ${slug}`).toBeDefined()
+      }
     }
   })
 })

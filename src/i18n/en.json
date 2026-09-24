@@ -51,7 +51,26 @@
     "notesTitle": "Recent notes",
     "contactTitle": "Get in touch",
     "contactPrompt": "Have an interesting idea, project, question, or opportunity? Feel free to get in touch.",
-    "readMoreAbout": "Read more about me"
+    "readMoreAbout": "Read more about me",
+    "caseStudy": "Read case study",
+    "evidenceFrom": "Evidence:",
+    "learningQueue": "Learning queue · {count} items",
+    "contactHeadline": "Open a conversation.",
+    "map": {
+      "label": "Map of the areas I work in: web, Android, distributed systems, game development and deployment.",
+      "web": "WEB",
+      "android": "ANDROID",
+      "distributed": "DISTRIBUTED",
+      "gamedev": "GAMEDEV",
+      "deployment": "DEPLOYMENT"
+    },
+    "timeline": {
+      "label": "Path so far",
+      "interest": "Early interest in computers and how software is made",
+      "secondary": "Informatics Management in secondary school",
+      "howest": "Software Engineering at Howest",
+      "nowMark": "Now"
+    }
   },
   "status": {
     "label": "Status",
@@ -129,8 +148,6 @@
   },
   "skills": {
     "title": "Skills",
-    "intro": "No percentages. Each skill is graded by how it was actually used, and links to the projects that demonstrate it.",
-    "legendTitle": "How to read this",
     "level": {
       "primary": "Primary experience",
       "used-in-projects": "Used in projects",
@@ -155,7 +172,9 @@
       "testing": "Testing and quality"
     },
     "evidenceLabel": "Evidence",
-    "noEvidence": "No project evidence yet"
+    "noEvidence": "No project evidence yet",
+    "filterLabel": "Filter skills by level",
+    "openHint": "Tap a skill to see the projects that back it up."
   },
   "about": {
     "title": "About",
@@ -198,15 +217,13 @@
     "availabilityTitle": "Internship availability",
     "emailLabel": "Email",
     "githubLabel": "GitHub",
-    "linkedinLabel": "LinkedIn",
-    "noForm": "There is no contact form here on purpose: email reaches me directly and nothing pretends to send."
+    "linkedinLabel": "LinkedIn"
   },
   "notFound": {
     "title": "Page not found",
     "body": "That page does not exist. The navigation above will get you back."
   },
   "footer": {
-    "builtWith": "Built with Vue 3, TypeScript and Vite.",
     "rights": "© {year} Imro Dhondt"
   },
   "meta": {

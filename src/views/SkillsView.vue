@@ -1,83 +1,60 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useLocale } from '@/composables/useLocale'
 import { useSeo } from '@/composables/useSeo'
 import { skills, currentlyLearning } from '@/data/skills'
-import { findProject } from '@/data/projects'
-import { SKILL_GROUPS, SKILL_LEVELS } from '@/types/content'
+import { SKILL_GROUPS, SKILL_LEVELS, type SkillLevel } from '@/types/content'
 import PageHeader from '@/components/layout/PageHeader.vue'
 import SectionHeading from '@/components/common/SectionHeading.vue'
+import LevelFilter from '@/components/skills/LevelFilter.vue'
+import SkillRow from '@/components/skills/SkillRow.vue'
 
 const { t } = useI18n()
-const { text, routeTo } = useLocale()
+const { text } = useLocale()
 
 useSeo({
   title: () => t('meta.skills'),
   description: () => t('meta.skillsDescription'),
 })
 
+const level = ref<SkillLevel | null>(null)
+
+/** Strongest skills first inside each group; empty groups disappear. */
 const groups = computed(() =>
   SKILL_GROUPS.map((group) => ({
     group,
-    items: skills.filter((skill) => skill.group === group),
+    items: skills
+      .filter((skill) => skill.group === group && (!level.value || skill.level === level.value))
+      .sort((a, b) => SKILL_LEVELS.indexOf(a.level) - SKILL_LEVELS.indexOf(b.level)),
   })).filter((entry) => entry.items.length > 0),
 )
-
-function projectTitle(slug: string): string {
-  return findProject(slug)?.title ?? slug
-}
 </script>
 
 <template>
   <div class="container">
-    <PageHeader eyebrow="03 //" :title="t('skills.title')" :intro="t('skills.intro')" />
+    <PageHeader eyebrow="03 //" :title="t('skills.title')" />
 
-    <section class="legend surface">
-      <h2 class="mono-label legend__title">{{ t('skills.legendTitle') }}</h2>
-      <dl class="legend__list">
-        <div v-for="level in SKILL_LEVELS" :key="level">
-          <dt class="legend__level" :class="`legend__level--${level}`">{{ t(`skills.level.${level}`) }}</dt>
-          <dd>{{ t(`skills.levelHelp.${level}`) }}</dd>
-        </div>
-      </dl>
-    </section>
+    <LevelFilter v-model="level" class="filter" />
 
-    <section v-for="entry in groups" :key="entry.group" class="group">
-      <SectionHeading :title="t(`skills.group.${entry.group}`)" />
-      <ul class="skills">
-        <li v-for="skill in entry.items" :key="skill.name" class="skill">
-          <div class="skill__head">
-            <span class="skill__name">{{ skill.name }}</span>
-            <span class="skill__level" :class="`skill__level--${skill.level}`">
-              {{ t(`skills.level.${skill.level}`) }}
-            </span>
-          </div>
+    <div class="groups">
+      <section v-for="entry in groups" :key="entry.group" class="group" :aria-labelledby="`group-${entry.group}`">
+        <h2 :id="`group-${entry.group}`" class="group__title">
+          {{ t(`skills.group.${entry.group}`) }}
+          <span class="group__count">{{ entry.items.length }}</span>
+        </h2>
+        <ul class="group__list">
+          <li v-for="skill in entry.items" :key="skill.name">
+            <SkillRow :skill="skill" />
+          </li>
+        </ul>
+      </section>
+    </div>
 
-          <p v-if="skill.caveat" class="skill__caveat">{{ text(skill.caveat) }}</p>
-
-          <p class="skill__evidence">
-            <span class="mono-label">{{ t('skills.evidenceLabel') }}:</span>
-            <template v-if="skill.evidence.length">
-              <RouterLink
-                v-for="slug in skill.evidence"
-                :key="slug"
-                class="skill__project"
-                :to="routeTo('project', { slug })"
-              >
-                {{ projectTitle(slug) }}
-              </RouterLink>
-            </template>
-            <span v-else class="skill__none">{{ t('skills.noEvidence') }}</span>
-          </p>
-        </li>
-      </ul>
-    </section>
-
-    <section class="group">
+    <section class="learning-block">
       <SectionHeading :title="t('home.learningTitle')" />
       <ul class="learning">
-        <li v-for="item in currentlyLearning" :key="item.name" class="learning__item surface">
+        <li v-for="item in currentlyLearning" :key="item.name" class="learning__item">
           <p class="learning__name">{{ item.name }}</p>
           <p class="learning__note">{{ text(item.note) }}</p>
         </li>
@@ -87,127 +64,56 @@ function projectTitle(slug: string): string {
 </template>
 
 <style scoped>
-.legend {
-  padding: var(--space-5);
-  margin-bottom: var(--space-8);
+.filter {
+  margin-bottom: var(--space-6);
 }
 
-.legend__title {
-  margin-bottom: var(--space-4);
-  color: var(--cyan);
+/* Groups flow into columns like a spec sheet, so the whole list fits on a few screens. */
+.groups {
+  columns: 1;
+  column-gap: var(--space-5);
 }
 
-.legend__list {
-  display: grid;
-  gap: var(--space-3);
-  font-size: var(--text-sm);
-}
-
-@media (min-width: 840px) {
-  .legend__list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+@media (min-width: 720px) {
+  .groups {
+    columns: 2;
   }
 }
 
-.legend__level {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.legend__list dd {
-  margin: var(--space-1) 0 0;
-  color: var(--muted);
-}
-
-.legend__level--primary,
-.skill__level--primary {
-  color: var(--cyan);
-}
-
-.legend__level--used-in-projects,
-.skill__level--used-in-projects {
-  color: var(--success);
-}
-
-.legend__level--familiar,
-.skill__level--familiar {
-  color: var(--muted);
-}
-
-.legend__level--learning,
-.skill__level--learning {
-  color: var(--warning);
+@media (min-width: 1080px) {
+  .groups {
+    columns: 3;
+  }
 }
 
 .group {
-  padding-top: var(--space-6);
-  margin-top: var(--space-6);
-  border-top: var(--border-width) solid var(--border);
-}
-
-.skills {
-  display: grid;
-  gap: var(--space-3);
-}
-
-@media (min-width: 840px) {
-  .skills {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.skill {
-  display: grid;
-  gap: var(--space-2);
-  padding: var(--space-4);
+  break-inside: avoid;
+  margin-bottom: var(--space-5);
+  padding: var(--space-4) var(--space-4) var(--space-2);
   background-color: var(--surface);
   border: var(--border-width) solid var(--border);
   border-radius: var(--radius);
 }
 
-.skill__head {
+.group__title {
   display: flex;
-  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: var(--space-2);
-}
-
-.skill__name {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   font-weight: 500;
-}
-
-.skill__level {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.06em;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
+  color: var(--cyan);
 }
 
-.skill__caveat {
-  font-size: var(--text-sm);
+.group__count {
   color: var(--muted);
 }
 
-.skill__evidence {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-  align-items: baseline;
-  font-size: var(--text-sm);
-}
-
-.skill__project {
-  font-size: var(--text-xs);
-  font-family: var(--font-mono);
-}
-
-.skill__none {
-  font-size: var(--text-xs);
-  font-family: var(--font-mono);
-  color: var(--muted);
+.learning-block {
+  margin-top: var(--space-8);
 }
 
 .learning {
@@ -229,12 +135,14 @@ function projectTitle(slug: string): string {
 
 .learning__item {
   padding: var(--space-4);
+  border-left: 2px solid var(--warning);
+  background-color: var(--surface);
 }
 
 .learning__name {
   font-family: var(--font-mono);
   font-size: var(--text-sm);
-  color: var(--cyan);
+  color: var(--text);
 }
 
 .learning__note {

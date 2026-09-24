@@ -21,7 +21,6 @@ const year = new Date().getFullYear()
           <a :href="profile.linkedin" rel="noopener noreferrer" target="_blank">{{ t('actions.linkedin') }}</a>
         </li>
       </ul>
-      <p class="footer__line footer__line--muted">{{ t('footer.builtWith') }}</p>
     </div>
   </footer>
 </template>
@@ -46,10 +45,6 @@ const year = new Date().getFullYear()
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--muted);
-}
-
-.footer__line--muted {
-  flex-basis: 100%;
 }
 
 .footer__links {

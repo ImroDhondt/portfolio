@@ -51,7 +51,26 @@
     "notesTitle": "Recente notities",
     "contactTitle": "Neem contact op",
     "contactPrompt": "Heb je een interessant idee, project, vraag of opportuniteit? Neem gerust contact op.",
-    "readMoreAbout": "Lees meer over mij"
+    "readMoreAbout": "Lees meer over mij",
+    "caseStudy": "Lees de case study",
+    "evidenceFrom": "Bewijs:",
+    "learningQueue": "Leerwachtrij · {count} items",
+    "contactHeadline": "Start een gesprek.",
+    "map": {
+      "label": "Kaart van de domeinen waarin ik werk: web, Android, gedistribueerde systemen, game development en deployment.",
+      "web": "WEB",
+      "android": "ANDROID",
+      "distributed": "GEDISTRIBUEERD",
+      "gamedev": "GAMEDEV",
+      "deployment": "DEPLOYMENT"
+    },
+    "timeline": {
+      "label": "Traject tot nu",
+      "interest": "Vroege interesse in computers en hoe software gemaakt wordt",
+      "secondary": "Informaticabeheer in het secundair",
+      "howest": "Software Engineering aan Howest",
+      "nowMark": "Nu"
+    }
   },
   "status": {
     "label": "Status",
@@ -129,8 +148,6 @@
   },
   "skills": {
     "title": "Skills",
-    "intro": "Geen percentages. Elke skill is gegradeerd op hoe die echt gebruikt werd en linkt naar de projecten die het aantonen.",
-    "legendTitle": "Hoe je dit leest",
     "level": {
       "primary": "Primaire ervaring",
       "used-in-projects": "Gebruikt in projecten",
@@ -155,7 +172,9 @@
       "testing": "Testen en kwaliteit"
     },
     "evidenceLabel": "Bewijs",
-    "noEvidence": "Nog geen projectbewijs"
+    "noEvidence": "Nog geen projectbewijs",
+    "filterLabel": "Filter skills op niveau",
+    "openHint": "Tik op een skill om de projecten te zien die hem onderbouwen."
   },
   "about": {
     "title": "Over mij",
@@ -198,15 +217,13 @@
     "availabilityTitle": "Beschikbaarheid voor stage",
     "emailLabel": "E-mail",
     "githubLabel": "GitHub",
-    "linkedinLabel": "LinkedIn",
-    "noForm": "Er staat hier bewust geen contactformulier: e-mail komt rechtstreeks bij mij aan en niets doet alsof het verzendt."
+    "linkedinLabel": "LinkedIn"
   },
   "notFound": {
     "title": "Pagina niet gevonden",
     "body": "Die pagina bestaat niet. De navigatie hierboven brengt je terug."
   },
   "footer": {
-    "builtWith": "Gebouwd met Vue 3, TypeScript en Vite.",
     "rights": "© {year} Imro Dhondt"
   },
   "meta": {

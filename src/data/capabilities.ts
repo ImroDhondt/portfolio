@@ -5,12 +5,15 @@ export interface Capability {
   key: string
   title: Localized
   items: LocalizedList
+  /** Project slugs where this capability was actually applied. */
+  evidence: string[]
 }
 
 /** Core capability groups shown on the home page and the about page. */
 export const capabilities: Capability[] = [
   {
     key: 'web',
+    evidence: ['qhse-platform', 'adria'],
     title: { en: 'Web applications', nl: 'Webapplicaties' },
     items: {
       en: [
@@ -31,6 +34,7 @@ export const capabilities: Capability[] = [
   },
   {
     key: 'mobile',
+    evidence: ['freeze-or-sneeze', 'ghost-haunter-incremental'],
     title: { en: 'Android and games', nl: 'Android en games' },
     items: {
       en: [
@@ -51,6 +55,7 @@ export const capabilities: Capability[] = [
   },
   {
     key: 'systems',
+    evidence: ['howestprime'],
     title: { en: 'Distributed systems', nl: 'Gedistribueerde systemen' },
     items: {
       en: [
@@ -71,6 +76,7 @@ export const capabilities: Capability[] = [
   },
   {
     key: 'delivery',
+    evidence: ['howestprime', 'qhse-platform', 'freeze-or-sneeze'],
     title: { en: 'Structure and delivery', nl: 'Structuur en oplevering' },
     items: {
       en: [

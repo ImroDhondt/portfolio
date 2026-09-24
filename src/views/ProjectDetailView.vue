@@ -9,7 +9,6 @@ import OwnershipBadge from '@/components/common/OwnershipBadge.vue'
 import TechTag from '@/components/common/TechTag.vue'
 import CodeBlock from '@/components/common/CodeBlock.vue'
 import EvidencePanel from '@/components/project/EvidencePanel.vue'
-import ProjectCover from '@/components/project/ProjectCover.vue'
 import NotFoundView from './NotFoundView.vue'
 
 const props = defineProps<{ slug: string }>()
@@ -83,8 +82,6 @@ const links = computed(() => {
         {{ project.confidential ? t('projects.confidential') : t('projects.noPublicLinks') }}
       </p>
     </header>
-
-    <ProjectCover :project="project" class="head__cover" />
 
     <!-- Team projects say up front which parts are not Imro's work. -->
     <section v-if="project.team" class="team">
@@ -196,11 +193,6 @@ const links = computed(() => {
 .head__nolinks {
   font-size: var(--text-sm);
   color: var(--muted);
-}
-
-.head__cover {
-  border: var(--border-width) solid var(--border);
-  border-radius: var(--radius);
 }
 
 .team {

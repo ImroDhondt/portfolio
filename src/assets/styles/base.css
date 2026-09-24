@@ -55,9 +55,10 @@ h1,
 h2,
 h3,
 h4 {
+  font-family: var(--font-display);
   line-height: var(--leading-tight);
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
   text-wrap: balance;
 }
 
@@ -185,6 +186,97 @@ samp {
   border: 1px solid var(--cyan);
   border-radius: 1px;
   transform: rotate(45deg);
+}
+
+/* Buttons ----------------------------------------------------------- */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-3) var(--space-5);
+  border: var(--border-width) solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color var(--transition), color var(--transition), background-color var(--transition);
+}
+
+.button:hover {
+  border-color: var(--cyan);
+  color: var(--cyan-bright);
+}
+
+.button--primary {
+  background-color: var(--cyan);
+  border-color: var(--cyan);
+  color: var(--bg);
+}
+
+.button--primary:hover {
+  background-color: var(--cyan-bright);
+  border-color: var(--cyan-bright);
+  color: var(--bg);
+}
+
+/* Small uppercase status line with a dot, e.g. internship availability. */
+.status-line {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.status-line__dot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--success);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--success) 18%, transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .status-line__dot {
+    animation: pulse 3.2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    box-shadow: 0 0 0 5px color-mix(in srgb, var(--success) 6%, transparent);
+  }
+}
+
+/*
+ * Scroll-linked entrance. Only where the browser supports view timelines and
+ * the visitor has not asked for reduced motion; otherwise content is static.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 60%;
+    }
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
 }
 
 /* Motion ------------------------------------------------------------ */

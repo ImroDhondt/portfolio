@@ -64,7 +64,6 @@ async function copyEmail() {
       <p>{{ text(profile.availability) }}</p>
     </section>
 
-    <p class="noform">{{ t('contact.noForm') }}</p>
   </div>
 </template>
 
@@ -120,11 +119,5 @@ async function copyEmail() {
 .availability__title {
   margin-bottom: var(--space-3);
   color: var(--cyan);
-}
-
-.noform {
-  margin-top: var(--space-5);
-  font-size: var(--text-sm);
-  color: var(--muted);
 }
 </style>
