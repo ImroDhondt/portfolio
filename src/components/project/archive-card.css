@@ -214,6 +214,11 @@
     transform: none;
   }
 
+  /* Every card, including the portrait Android one, gets the same panel. */
+  .entry--tall {
+    grid-template-rows: auto auto 1fr;
+  }
+
   .entry .entry__visual {
     min-height: 150px;
   }
